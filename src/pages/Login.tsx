@@ -1,5 +1,7 @@
-import { Crosshair, Eye, EyeOff, Route, Bell, MapPinned } from 'lucide-react';
+import { Eye, EyeOff, Route, Bell, MapPinned } from 'lucide-react';
 import { useState, type FormEvent } from 'react';
+import heroImage from '../assets/login-hero.webp';
+import logo from '../assets/logo.png';
 import { APP_NAME, POWERED_BY } from '../brand';
 import { useAuth } from '../auth';
 
@@ -26,24 +28,22 @@ export default function Login() {
 
   return (
     <div className="login-page">
-      <section className="login-hero">
-        <div className="brand">
-          <span className="brand-mark">
-            <Crosshair size={22} />
-          </span>
-          <strong>{APP_NAME}</strong>
+      {/* the banner already carries the ad96 logo; the text sits on a dark gradient at the bottom */}
+      <section className="login-hero" style={{ backgroundImage: `url(${heroImage})` }}>
+        <div className="hero-copy">
+          <h1>Know where your team is, and where their time goes.</h1>
+          <ul>
+            <li><MapPinned size={18} /> Live map of every worker</li>
+            <li><Route size={18} /> 24h, 48h and 7-day route history with stops</li>
+            <li><Bell size={18} /> Alerts when someone goes offline or arrives on site</li>
+          </ul>
+          <p className="hero-credit">Powered by <strong>{POWERED_BY}</strong></p>
         </div>
-        <h1>Know where your team is, and where their time goes.</h1>
-        <ul>
-          <li><MapPinned size={18} /> Live map of every worker</li>
-          <li><Route size={18} /> 24h, 48h and 7-day route history with stops</li>
-          <li><Bell size={18} /> Alerts when someone goes offline or arrives on site</li>
-        </ul>
-        <p className="hero-credit">Powered by <strong>{POWERED_BY}</strong></p>
       </section>
 
       <section className="login-panel">
         <form className="login-form" onSubmit={submit}>
+          <img className="login-logo" src={logo} alt={APP_NAME} width={84} height={84} />
           <h2>Sign in</h2>
           <p className="muted">Administrator access</p>
           <label>

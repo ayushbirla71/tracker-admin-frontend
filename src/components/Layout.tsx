@@ -1,10 +1,11 @@
 import { useQuery, useQueryClient } from '@tanstack/react-query';
-import { Bell, CheckCheck, Download, Eraser, Crosshair, LayoutDashboard, LogOut, MapPinned, Menu, Monitor, Moon, Settings as SettingsIcon, Smartphone, Sun, Target, Users, FileText } from 'lucide-react';
+import { Bell, CheckCheck, Download, Eraser, LayoutDashboard, LogOut, MapPinned, Menu, Monitor, Moon, Settings as SettingsIcon, Smartphone, Sun, Target, Users, FileText } from 'lucide-react';
 import { Suspense, useEffect, useRef, useState } from 'react';
 import { NavLink, Outlet, useLocation, useNavigate } from 'react-router-dom';
 import { useAlertActions } from '../alertActions';
 import { alertIcon, relativeTime } from '../alertMeta';
 import { api, post, type Alert } from '../api';
+import logo from '../assets/logo.png';
 import { APP_NAME, POWERED_BY } from '../brand';
 import { useAuth } from '../auth';
 import { useToast } from '../feedback';
@@ -62,9 +63,7 @@ export default function Layout() {
     <div className={`shell${navOpen ? ' nav-open' : ''}`}>
       <aside className="sidebar">
         <div className="brand">
-          <span className="brand-mark">
-            <Crosshair size={20} />
-          </span>
+          <img className="brand-logo" src={logo} alt="" width={36} height={36} />
           <div>
             <strong>{APP_NAME}</strong>
             <div className="small">Powered by {POWERED_BY}</div>

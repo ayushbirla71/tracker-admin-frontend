@@ -150,7 +150,7 @@ h2 .count { margin-left: 6px; }
 .sidebar { width: 236px; flex-shrink: 0; background: var(--sidebar); color: var(--sidebar-text); display: flex; flex-direction: column; padding: 14px 12px; gap: 14px; z-index: 40; }
 .brand { display: flex; align-items: center; gap: 10px; padding: 4px 6px; color: #fff; }
 .brand .small { color: var(--sidebar-text); }
-.brand-mark { width: 36px; height: 36px; border-radius: 10px; background: linear-gradient(135deg, #3b82f6, #6366f1); display: inline-flex; align-items: center; justify-content: center; color: #fff; flex-shrink: 0; }
+.brand-logo { width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0; object-fit: cover; }
 .sidebar nav { display: flex; flex-direction: column; gap: 2px; flex: 1; }
 .sidebar nav a { display: flex; align-items: center; gap: 11px; padding: 9px 11px; border-radius: 9px; color: var(--sidebar-text); font-weight: 500; }
 .sidebar nav a:hover { background: var(--sidebar-active); color: #fff; text-decoration: none; }
@@ -378,7 +378,9 @@ td.actions { white-space: nowrap; }
 
 /* login */
 .login-page { min-height: 100%; display: grid; grid-template-columns: 1.1fr 1fr; }
-.login-hero { background: radial-gradient(1200px 600px at 0% 0%, #1e3a8a 0%, transparent 60%), linear-gradient(160deg, #0b1220, #101c3a); color: #cdd7e8; padding: 56px; display: flex; flex-direction: column; justify-content: center; gap: 28px; }
+.login-hero { position: relative; color: #cdd7e8; padding: 56px; display: flex; flex-direction: column; justify-content: flex-end; background-color: #0b1220; background-repeat: no-repeat; background-position: 50% 0; background-size: auto 80%; isolation: isolate; }
+.login-hero::before { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(to top, rgb(11 18 32 / 1) 0%, rgb(11 18 32 / 0.92) 22%, rgb(11 18 32 / 0.5) 38%, rgb(11 18 32 / 0) 56%); }
+.hero-copy { display: flex; flex-direction: column; gap: 22px; }
 .login-hero h1 { color: #fff; font-size: 34px; line-height: 1.2; max-width: 460px; }
 .login-hero ul { display: flex; flex-direction: column; gap: 14px; }
 .login-hero li { display: flex; align-items: center; gap: 12px; }
@@ -389,6 +391,7 @@ td.actions { white-space: nowrap; }
 .panel-credit { display: none; text-align: center; }
 .login-form { width: 100%; max-width: 380px; display: flex; flex-direction: column; gap: 16px; }
 .login-form h2 { font-size: 24px; }
+.login-logo { align-self: center; margin-bottom: 4px; filter: drop-shadow(0 6px 14px rgb(15 23 42 / 0.25)); }
 .password-field { position: relative; display: flex; }
 .password-field input { width: 100%; padding-right: 42px; }
 .password-field .icon-btn { position: absolute; right: 3px; top: 50%; transform: translateY(-50%); }
